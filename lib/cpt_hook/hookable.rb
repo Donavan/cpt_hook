@@ -35,7 +35,8 @@ module CptHook
         hook[:contexts] = hook.fetch(:contexts, []).concat(additional_contexts)
         define_singleton_method("#{which}_#{hook[which]}") do |*args, &block|
           hook[:call_chain].each do |call_chain|
-            call_args = call_chain.fetch(:with, [])
+            call_args = call_chain.fetch(:with, []).map { |ca| ca == :self ? self : ca }
+            
             hook_fn = call_chain[:call]
             if hook_fn.is_a?(Proc)
               hook_fn.call(*call_args)
