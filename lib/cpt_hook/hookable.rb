@@ -10,7 +10,6 @@ module CptHook
       super(obj)
 
       additional_contexts = [additional_contexts] unless additional_contexts.is_a?(Array)
-
       _add_hooks(:before, method_hooks, additional_contexts)
       _add_hooks(:after, method_hooks, additional_contexts)
 
@@ -35,13 +34,15 @@ module CptHook
       method_hooks.select {|hook| hook.key?(which)}.each do |hook|
         hook[:contexts] = hook.fetch(:contexts, []).concat(additional_contexts)
         define_singleton_method("#{which}_#{hook[which]}") do |*args, &block|
-          hook[:call].each do |hook_fn|
+          hook[:call_chain].each do |call_chain|
+            call_args = call_chain.fetch(:with, [])
+            hook_fn = call_chain[:call]
             if hook_fn.is_a?(Proc)
-              hook_fn.call
+              hook_fn.call(*call_args)
             else
               context = hook[:contexts].unshift(__getobj__).find {|c| c.respond_to?(hook_fn)}
               raise "No context found for #{which} hook: #{hook_fn}" unless context
-              context.send(hook_fn)
+              context.send(hook_fn, *call_args)
             end
           end
         end
