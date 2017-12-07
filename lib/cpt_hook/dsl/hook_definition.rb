@@ -30,6 +30,13 @@ module CptHook
         @call_chain.last.contexts(*args)
         self
       end
+
+      def merge!(other)
+        other.call_chain.each do |cc|
+          @call_chain << cc unless @call_chain.any? { |c| c.method == cc.method }
+        end
+        self
+      end
     end
   end
 end

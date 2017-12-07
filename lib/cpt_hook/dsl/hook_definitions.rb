@@ -22,6 +22,18 @@ module CptHook
         _hook_definition(method_to_hook, :after, &block)
       end
 
+      def merge!(other)
+        other.hooks.each do |hook|
+          my_hook = @hooks.find { |h| (h.method == hook.method) && (h.hook_type == hook.hook_type) }
+          if my_hook
+            my_hook.merge!(hook)
+          else
+            @hooks << hook
+          end
+        end
+        self
+      end
+
       private
 
       def _hook_definition(method_to_hook, hook_type, &block)

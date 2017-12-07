@@ -45,11 +45,14 @@ external_context = ResTest.new
 c = TestClass.new
 
 test_hooks = CptHook.define_hooks do
+  before(:test_fn).call(:res_fn)
+end
+
+test_hooks2 = CptHook.define_hooks do
   before(:test_fn).call(:res_fn).call(:ext_res_fn).using( lambda { return external_context })
 end
 
-
-hooked = CptHook::Hookable.new(c, test_hooks)
+hooked = CptHook::Hookable.new(c, test_hooks.merge!(test_hooks2))
 hooked.test_fn
 binding.pry
 
