@@ -8,11 +8,11 @@ module CptHook
       end
 
       def before(method_to_hook, &block)
-        _hook_definition(method_to_hook, :before)
+        _hook_definition(method_to_hook, :before, &block)
       end
 
       def after(method_to_hook, &block)
-        _hook_definition(method_to_hook, :after)
+        _hook_definition(method_to_hook, :after, &block)
       end
 
       private
