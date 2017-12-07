@@ -13,7 +13,7 @@ module CptHook
         @with = args
       end
 
-      def contexts(*args)
+      def using(*args)
         @contexts = args
       end
     end

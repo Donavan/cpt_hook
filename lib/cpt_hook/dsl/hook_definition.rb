@@ -17,12 +17,17 @@ module CptHook
       end
 
       def with(*args)
-        @call_chain.last.with(args)
+        @call_chain.last.with(*args)
+        self
+      end
+
+      def using(*args)
+        @call_chain.last.using(*args)
         self
       end
 
       def contexts(*args)
-        @call_chain.last.contexts(args)
+        @call_chain.last.contexts(*args)
         self
       end
     end

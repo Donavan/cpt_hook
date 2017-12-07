@@ -37,7 +37,7 @@ module CptHook
             if call_chain.method.is_a?(Proc)
               call_chain.method.call(*call_args)
             else
-              contexts = hook.contexts.concat(additional_contexts).unshift(__getobj__)
+              contexts = call_chain.contexts.concat(additional_contexts).unshift(__getobj__)
               context = contexts.find {|c| c.respond_to?(call_chain.method)}
               raise "No context found for #{which} hook: #{call_chain.method}" unless context
               context.send(call_chain.method, *call_args)

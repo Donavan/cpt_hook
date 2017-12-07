@@ -23,18 +23,34 @@ my_hooks = CptHook.define_hooks do
 
 end
 
-test_hooks = CptHook.define_hooks do
-  before(:test_fn).call( lambda { puts 'before' })
+
+class ResTest
+  def ext_res_fn
+    puts 'Resolved external context'
+  end
 end
 
 class TestClass
+  def res_fn
+    puts 'Resolved internal context'
+  end
+
   def test_fn
     puts 'test_fn'
   end
 end
 
+external_context = ResTest.new
+
 c = TestClass.new
+
+test_hooks = CptHook.define_hooks do
+  before(:test_fn).call(:res_fn).call(:ext_res_fn).using(external_context)
+end
+
+
 hooked = CptHook::Hookable.new(c, test_hooks)
+hooked.test_fn
 binding.pry
 
 puts 'Console exiting'  # This is just to ensure a line exists below the pry
