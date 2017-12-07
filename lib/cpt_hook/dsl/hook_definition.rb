@@ -3,7 +3,7 @@ module CptHook
   module DSL
 
     class HookDefinition
-      attr_reader :method, :hook_type
+      attr_reader :method, :hook_type, :call_chain
 
       def initialize(method_to_hook, type)
         @method     = method_to_hook
@@ -18,6 +18,11 @@ module CptHook
 
       def with(*args)
         @call_chain.last.with(args)
+        self
+      end
+
+      def contexts(*args)
+        @call_chain.last.contexts(args)
         self
       end
     end

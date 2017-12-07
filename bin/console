@@ -10,7 +10,7 @@ my_hooks = CptHook.define_hooks do
   before(:some_fn).call(:my_hook).with(:var1, :var2)
 
   # Complex case, add multiple calls to the fn block style
-  before(:some_other_fn) do
+  after(:some_other_fn) do
     call(:my_other_hook).with(:var3, :var4)
     call(:yet_another_hook)
     call( lambda { | hooked_obj | hooked_obj.some_fn }).with(:self)
@@ -23,6 +23,18 @@ my_hooks = CptHook.define_hooks do
 
 end
 
+test_hooks = CptHook.define_hooks do
+  before(:test_fn).call( lambda { puts 'before' })
+end
+
+class TestClass
+  def test_fn
+    puts 'test_fn'
+  end
+end
+
+c = TestClass.new
+hooked = CptHook::Hookable.new(c, test_hooks)
 binding.pry
 
 puts 'Console exiting'  # This is just to ensure a line exists below the pry

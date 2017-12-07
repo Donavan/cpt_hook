@@ -1,14 +1,20 @@
 module CptHook
   module DSL
     class MethodCall
-      attr_reader :method, :args
+      attr_reader :method, :with, :contexts
 
       def initialize(method_to_call)
         @method = method_to_call
+        @contexts = []
+        @with = []
       end
 
       def with(*args)
-        @args = *args
+        @with = args
+      end
+
+      def contexts(*args)
+        @contexts = args
       end
     end
   end
