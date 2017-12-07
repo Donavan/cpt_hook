@@ -2,13 +2,27 @@
 
 require "bundler/setup"
 require "cpt_hook"
+require "pry"
 
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
 
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
+my_hooks = CptHook.define_hooks do
+  # Simple case call one fn with args
+  before(:some_fn).call(:my_hook).with(:var1, :var2)
 
-require "irb"
-IRB.start(__FILE__)
+  # Complex case, add multiple calls to the fn block style
+  before(:some_other_fn) do
+    call(:my_other_hook).with(:var3, :var4)
+    call(:yet_another_hook)
+    call( lambda { | hooked_obj | hooked_obj.some_fn }).with(:self)
+  end
+
+  # Complex case, add multiple calls to the fn fluent style
+  before(:some_other_fn).call(:my_other_hook).with(:var3, :var4)
+                        .call(:yet_another_hook)
+                        .call( lambda { | hooked_obj | hooked_obj.some_fn }).with(:self)
+
+end
+
+binding.pry
+
+puts 'Console exiting'  # This is just to ensure a line exists below the pry

@@ -16,7 +16,6 @@ module CptHook
       method_hooks.map {|h| h[:before] || h[:after]}.uniq.each do |method|
         define_singleton_method(method) do |*args, &block|
           self.send("before_#{method}") if self.respond_to? "before_#{method}"
-          #val = __getobj__.send(method, *args, &block)
           val = super(*args, &block)
           self.send("after_#{method}") if self.respond_to? "after_#{method}"
           val
@@ -36,7 +35,7 @@ module CptHook
         define_singleton_method("#{which}_#{hook[which]}") do |*args, &block|
           hook[:call_chain].each do |call_chain|
             call_args = call_chain.fetch(:with, []).map { |ca| ca == :self ? self : ca }
-            
+
             hook_fn = call_chain[:call]
             if hook_fn.is_a?(Proc)
               hook_fn.call(*call_args)
