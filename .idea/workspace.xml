@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3693b54d-c907-45c6-9528-2e0394f1319b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/spec/hookable_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/.idea/cpt_hook.iml" afterPath="$PROJECT_DIR$/.idea/cpt_hook.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/bin/console" afterPath="$PROJECT_DIR$/bin/console" />
       <change beforePath="$PROJECT_DIR$/cpt_hook.gemspec" afterPath="$PROJECT_DIR$/cpt_hook.gemspec" />
-      <change beforePath="$PROJECT_DIR$/lib/cpt_hook/dsl/hook_definition.rb" afterPath="$PROJECT_DIR$/lib/cpt_hook/dsl/hook_definition.rb" />
-      <change beforePath="$PROJECT_DIR$/lib/cpt_hook/dsl/hook_definitions.rb" afterPath="$PROJECT_DIR$/lib/cpt_hook/dsl/hook_definitions.rb" />
-      <change beforePath="$PROJECT_DIR$/lib/cpt_hook/dsl/method_call.rb" afterPath="$PROJECT_DIR$/lib/cpt_hook/dsl/method_call.rb" />
-      <change beforePath="$PROJECT_DIR$/lib/cpt_hook/hookable.rb" afterPath="$PROJECT_DIR$/lib/cpt_hook/hookable.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/cpt_hook_spec.rb" afterPath="$PROJECT_DIR$/spec/cpt_hook_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" />
+      <change beforePath="$PROJECT_DIR$/lib/cpt_hook/version.rb" afterPath="$PROJECT_DIR$/lib/cpt_hook/version.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,11 +34,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hookable_spec.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hookable_spec.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/hookable_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
               <caret line="162" column="43" lean-forward="false" selection-start-line="162" selection-start-column="43" selection-end-line="162" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/cpt_hook/version.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cpt_hook.gemspec" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cpt_hook.gemspec">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="28" column="53" lean-forward="false" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -108,13 +119,14 @@
       <list>
         <option value="$PROJECT_DIR$/bin/console" />
         <option value="$PROJECT_DIR$/spec/cpt_hook_spec.rb" />
-        <option value="$PROJECT_DIR$/cpt_hook.gemspec" />
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/lib/cpt_hook/hookable.rb" />
         <option value="$PROJECT_DIR$/lib/cpt_hook/dsl/method_call.rb" />
         <option value="$PROJECT_DIR$/lib/cpt_hook/dsl/hook_definition.rb" />
         <option value="$PROJECT_DIR$/lib/cpt_hook/dsl/hook_definitions.rb" />
         <option value="$PROJECT_DIR$/spec/hookable_spec.rb" />
+        <option value="$PROJECT_DIR$/lib/cpt_hook/version.rb" />
+        <option value="$PROJECT_DIR$/cpt_hook.gemspec" />
       </list>
     </option>
   </component>
@@ -228,12 +240,12 @@
       <workItem from="1511554572464" duration="9000" />
       <workItem from="1516647511263" duration="1328000" />
       <workItem from="1516981208104" duration="7633000" />
-      <workItem from="1517016157753" duration="1821000" />
+      <workItem from="1517016157753" duration="2021000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10791000" />
+    <option name="totallyTimeSpent" value="10991000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="878" extended-state="6" />
@@ -327,13 +339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cpt_hook.gemspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/cpt_hook.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -402,6 +407,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="162" column="43" lean-forward="false" selection-start-line="162" selection-start-column="43" selection-end-line="162" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/cpt_hook/version.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cpt_hook.gemspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="28" column="53" lean-forward="false" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
           <folding />
         </state>
       </provider>
