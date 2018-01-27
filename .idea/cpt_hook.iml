@@ -7,5 +7,6 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="pry (v0.10.3, rbenv: 1.9.3-p551) [gem]" level="application" />
   </component>
 </module>

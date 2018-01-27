@@ -3,7 +3,7 @@ RSpec.describe CptHook do
     expect(CptHook::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "has a method to define hooks" do
+    expect(CptHook).to respond_to(:define_hooks)
   end
 end

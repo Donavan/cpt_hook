@@ -27,8 +27,23 @@ module CptHook
       end
 
       def contexts(*args)
-        @call_chain.last.contexts(*args)
+        @call_chain.last.contexts.concat args
         self
+      end
+
+      def dup
+        HookDefinition.new(@method, @hook_type).clone(self)
+      end
+
+      def clone(other)
+        @call_chain = other.call_chain.map { |cc| cc.dup }
+        @hook_type = other.hook_type
+        @method = other.method
+        self
+      end
+
+      def merge(other)
+        dup.merge!(other)
       end
 
       def merge!(other)

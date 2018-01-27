@@ -32,11 +32,11 @@ end
 
 class TestClass
   def res_fn
-    puts 'Resolved internal context'
+    1 + 1
   end
 
   def test_fn
-    puts 'test_fn'
+    2 + 2
   end
 end
 
@@ -48,11 +48,11 @@ test_hooks = CptHook.define_hooks do
   before(:test_fn).call(:res_fn)
 end
 
-test_hooks2 = CptHook.define_hooks do
-  before(:test_fn).call(:res_fn).call(:ext_res_fn).using( lambda { return external_context })
-end
+#test_hooks2 = CptHook.define_hooks do
+#  before(:test_fn).call(:res_fn).call(:ext_res_fn).using( lambda { return external_context })
+#end
 
-hooked = CptHook::Hookable.new(c, test_hooks.merge!(test_hooks2))
+hooked = CptHook::Hookable.new(c, test_hooks)
 hooked.test_fn
 binding.pry
 

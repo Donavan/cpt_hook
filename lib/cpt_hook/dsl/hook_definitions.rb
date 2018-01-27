@@ -22,6 +22,19 @@ module CptHook
         _hook_definition(method_to_hook, :after, &block)
       end
 
+      def clone(other)
+        @hooks = other.hooks.map { |h| h.dup }
+        self
+      end
+
+      def dup
+        HookDefinitions.new.clone(self)
+      end
+
+      def merge(other)
+        dup.merge!(other)
+      end
+
       def merge!(other)
         other.hooks.each do |hook|
           my_hook = @hooks.find { |h| (h.method == hook.method) && (h.hook_type == hook.hook_type) }

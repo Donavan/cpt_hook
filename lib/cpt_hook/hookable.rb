@@ -32,7 +32,8 @@ module CptHook
       method_hooks.hooks(which).each do |hook|
         define_singleton_method("#{which}_#{hook.method}") do |*args, &block|
           hook.call_chain.each do |call_chain|
-            call_args = call_chain.with.map { |ca| ca == :self ? self : ca }
+            call_args = call_chain.withs.map { |ca| ca == :self ? self : ca }
+
             if call_chain.method.is_a?(Proc)
               call_chain.method.call(*call_args)
             else
